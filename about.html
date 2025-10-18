@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Lola Rosa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'lola-teal': '#1a5f7a',
+            'lola-teal-dark': '#154d61',
+            'lola-teal-light': '#e6f2f5',
+            'lola-magenta': '#b8257f',
+            'lola-magenta-dark': '#9a1f6a',
+            'lola-magenta-light': '#fce8f3',
+            'lola-brown': '#6b4423',
+            'lola-beige': '#e8e0d5',
+            'lola-beige-dark': '#d4c9ba',
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Smooth scrolling */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* Hero animation classes */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navbar shadow on scroll */
+    .navbar-shadow {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Dropdown animation */
+    .dropdown-menu {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+      pointer-events: none;
+    }
+
+    .dropdown-menu.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Mobile menu animation */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .mobile-menu.active {
+      max-height: 500px;
+    }
+
+    /* Card hover effect */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Button hover effect */
+    .btn-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-hover:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Carousel */
+    .carousel-item {
+      display: none;
+    }
+
+    .carousel-item.active {
+      display: block;
+    }
+  </style>
+</head>
+
+<body class="font-sans text-gray-900 bg-lola-beige pt-24">
+
+    <!-- Top Contact Bar -->
+    <div class="fixed top-0 left-0 right-0 bg-gray-50 border-b border-gray-200 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between py-2 text-sm">
+    
+          <!-- Email -->
+          <div class="flex items-center gap-2 text-gray-600">
+            <i class="far fa-envelope text-lola-magenta-dark"></i>
+            <a href="mailto:inquiries@cheskafreight.com.ph" class="hover:text-lola-teal transition-colors">
+              lalolarosa.ph@gmail.com
+            </a>
+          </div>
+    
+          <!-- Phone Numbers and Social Media -->
+          <div class="flex items-center gap-4">
+            <!-- Phone Numbers -->
+            <div class="hidden sm:flex items-center gap-3 text-gray-600">
+              <i class="fas fa-phone text-lola-magenta-dark"></i>
+              <a href="tel:+6328245-9436" class="hover:text-lola-teal transition-colors">09175921859</a>
+            </div>
+    
+            <!-- Social Media Icons -->
+            <div class="flex items-center gap-3">
+              <a href="https://www.facebook.com/share/19z6sQuHDy/" target="_blank"
+                class="text-lola-magenta-dark hover:text-lola-teal transition-colors">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.instagram.com/lalolarosa.ph?igsh=MWZzNjNmaG13YXJpNA==" target="_blank"
+                class="text-lola-magenta-dark hover:text-lola-teal transition-colors">
+                <i class="fab fa-instagram"></i>
+              </a>
+              <a href="https://www.tiktok.com/@lalolarosa.ph?_t=ZS-90PJv2NhYzl&_r=1" target="_blank"
+                class="text-lola-magenta-dark hover:text-lola-teal transition-colors">
+                <i class="fab fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Navbar -->
+     <nav id="navbar" class="fixed top-9 left-0 right-0 bg-white z-40 shadow-sm transition-shadow duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-center justify-between gap-x-16 h-16">
+      
+            <!-- Logo -->
+            <div class="flex-shrink-0">
+              <span class="text-xl font-bold text-lola-teal">logo here</span>
+            </div>
+      
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center space-x-8">
+              <a href="index.html" class="text-gray-700 hover:text-lola-teal transition-colors">Home</a>
+              <a href="#about" class="text-gray-700 hover:text-lola-teal transition-colors">About</a>
+      
+              <!-- Services Dropdown -->
+              <div class="relative dropdown-container">
+                <button
+                  class="text-gray-700 hover:text-lola-teal transition-colors flex items-center gap-1 focus:outline-none focus:text-lola-teal"
+                  aria-haspopup="true" aria-expanded="false">
+                  <a href="#products" class="flex-1 text-left">Services</a>
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+                  <a href="wooden-stands.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Wooden
+                    Stands</a>
+                  <a href="metal-stands.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Metal
+                    Stands</a>
+                  <a href="uv-prints.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Picture
+                    Packages</a>
+                  <a href="video.html"
+                    class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Video
+                    Booth</a>
+                </div>
+              </div>
+      
+              <a href="gallery.html" class="text-gray-700 hover:text-lola-teal transition-colors">Gallery</a>
+              <a href="#contact" class="text-gray-700 hover:text-lola-teal transition-colors">Contact</a>
+            </div>
+      
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button"
+              class="md:hidden p-2 rounded-lg hover:bg-lola-beige focus:outline-none focus:ring-2 focus:ring-lola-teal"
+              aria-label="Toggle mobile menu" aria-expanded="false">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+      
+          <!-- Mobile Menu -->
+          <div id="mobile-menu" class="mobile-menu md:hidden">
+            <div class="px-2 pt-2 pb-3 space-y-1">
+              <a href="#home"
+                class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Home</a>
+              <a href="#about"
+                class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">About</a>
+      
+              <!-- Mobile Services Dropdown -->
+              <div>
+                <button id="mobile-services-button"
+                  class="w-full text-left px-3 py-2 rounded-lg text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors flex items-center justify-between"
+                  aria-expanded="false">
+                  <a href="#products" class="flex-1 text-left">Services</a>
+                  <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                  </svg>
+                </button>
+                <div id="mobile-services-menu" class="mobile-menu pl-4">
+                  <a href="wooden-stands.html"
+                    class="block px-3 py-2 rounded-lg text-gray-600 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Wooden
+                    Stands</a>
+                  <a href="metal-stands.html"
+                    class="block px-3 py-2 rounded-lg text-gray-600 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Metal
+                    Stands</a>
+                  <a href="uv-prints.html"
+                    class="block px-3 py-2 rounded-lg text-gray-600 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Picture
+                    Packages</a>
+                  <a href="video.html"
+                    class="block px-3 py-2 rounded-lg text-gray-600 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Video
+                    Booth</a>
+                </div>
+              </div>
+      
+              <a href="gallery.html"
+                class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Gallery</a>
+              <a href="#contact"
+                class="block px-3 py-2 rounded-lg text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+
+          <!-- About Us Section -->
+          <section class="bg-[#f5f0eb] py-16 md:py-24">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20">
+              <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 class="text-5xl md:text-6xl font-light mb-6">About Us</h2>
+                  <p class="text-lg md:text-xl leading- italic">
+                    Behind the brand
+                  </p>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                  <img src="assets/images/gallery-300x300.png"
+                    alt="Team photo" class="rounded-3xl w-full max-w-md shadow-lg">
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          
+          <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20">
+              
+              <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="flex justify-center md:justify-start">
+                  <img src="assets/images/place-holder-400x550.svg" alt="Office space" class="rounded-3xl w-full shadow-lg">
+                </div>
+                <div>
+                  <h2 class="text-3xl md:text-4xl font-semibold mb-6">Why we do what we do
+                  </h2>
+                  <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    Hola! <span class="font-bold">Shaira Rose</span> here — the <span class="italic">heart</span> behind <span class="text-lola-magenta-dark font-bold">La Lola Rosa.</span>
+                  </p>
+                  <p class="text-lg leading-relaxed text-gray-700">
+                  This all started as a <span class="italic">dream</span>. Ever since I was young, I knew I wanted to build something of my own. My biggest
+                  inspiration? <span class="font-bold">my mom</span>. I grew up watching her pour love into our small family business, it was our <span class="italic">bread and butter</span> and a
+                  <span class="underline">big part of who I am today.</span>
+                  </p>
+                </div>
+              </div>
+          
+              <!-- Second Row: Text Left, Image Right -->
+              <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div>
+                  <h2 class="text-3xl md:text-4xl font-semibold mb-6">Why we do what we do</h2>
+                  <p class="text-lg leading-relaxed text-gray-700 mb-4">
+                    From selling ballers in 6th grade to bags and clothes, <span class="underline font-bold">entrepreneurship</span> <span class="underline">has always been part of me.</span> Even when I entered
+                    the corporate world, I stayed close to sales, <span class="underline">because connecting with people and creating something meaningful has
+                    always felt like home.</span>
+                  </p>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                  <img src="assets/images/place-holder-400x550.svg" alt="Founders" class="rounded-3xl w-full shadow-lg">
+                </div>
+              </div>
+
+
+              <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+                <div class="flex justify-center md:justify-start">
+                  <img src="assets/images/place-holder-400x550.svg" alt="Office space" class="rounded-3xl w-full shadow-lg">
+                </div>
+                <div>
+                  <h2 class="text-3xl md:text-4xl font-semibold mb-6">Why we do what we do
+                  </h2>
+                  <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    Then in <span class="font-bold">2023, I got married and everything clicked.</span> I fell in love with the <span class="font-bold">magic of events:</span> <span class="underline">the planning, the emotions,
+                    and all the beautiful details that make each moment unforgettable.</span> It made me realize how deeply people pour themselves
+                    into their once-in-a-lifetime celebrations and I knew I wanted to be part of that.
+                  </p>
+                  <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    That’s how <span class="text-lola-magenta-dark font-bold">La Lola Rosa</span> was born.
+                  </p>
+                  <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    We’re here to help you hold onto the magic of your event with keepsakes crafted to last a lifetime.
+                  </p>
+                  <p class="text-lg leading-relaxed text-gray-700 mb-8">
+                    <span class="font-bold">Because after all the wedding preparations, you deserve something beautiful to take home.</span>
+                  </p>
+                </div>
+              </div>
+
+            </div>
+          </section>
+          
+          <!-- Testimonials Section -->
+          <section class="bg-[#f9fafb] py-16 md:py-24">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20">
+              <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-light mb-4">What Our Customers Say</h2>
+                <p class="text-lg text-gray-700">Trusted by hundreds of event organizers nationwide</p>
+              </div>
+          
+              <div class="relative max-w-4xl mx-auto">
+                <!-- Navigation Arrows -->
+                <button onclick="previousTestimonial()"
+                  class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 text-3xl text-gray-600 hover:text-gray-900 transition z-10">
+                  ‹
+                </button>
+                <button onclick="nextTestimonial()"
+                  class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 text-3xl text-gray-600 hover:text-gray-900 transition z-10">
+                  ›
+                </button>
+          
+                <!-- Testimonial Cards -->
+                <div id="testimonial-container" class="bg-white rounded-2xl shadow-lg p-8 md:p-12 min-h-[400px]">
+                  <div class="testimonial-card" data-index="0">
+                    <div class="flex justify-center mb-8">
+                      <img src="assets/images/testimonial-80x80.png" alt="Patricia Portik"
+                        class="w-24 h-24 rounded-full object-cover">
+                    </div>
+                    <blockquote class="text-center mb-8">
+                      <p class="text-xl md:text-2xl leading-relaxed mb-6">
+                        "The metal stands exceeded our expectations! They were sturdy, elegant, and received countless compliments at our
+                        corporate event. Highly recommend!"
+                      </p>
+                    </blockquote>
+                    <div class="text-center">
+                      <p class="font-semibold text-lg">Sarah Johnson</p>
+                      <p class="text-gray-600">Event Coordinator, TechCorp</p>
+                    </div>
+                  </div>
+          
+                  <div class="testimonial-card hidden" data-index="1">
+                    <div class="flex justify-center mb-8">
+                      <img src="assets/images/testimonial-80x80.png" alt="Customer 2"
+                        class="w-24 h-24 rounded-full object-cover">
+                    </div>
+                    <blockquote class="text-center mb-8">
+                      <p class="text-xl md:text-2xl leading-relaxed mb-6">
+                        "Beautiful wooden stands that perfectly matched our rustic theme. The craftsmanship is outstanding, and the setup was
+                        seamless. Will definitely use again!"
+                      </p>
+                    </blockquote>
+                    <div class="text-center">
+                      <p class="font-semibold text-lg">Emily Rodriguez</p>
+                      <p class="text-gray-600">Festival Organizer</p>
+                    </div>
+                  </div>
+          
+                  <div class="testimonial-card hidden" data-index="2">
+                    <div class="flex justify-center mb-8">
+                      <img src="assets/images/testimonial-80x80.png" alt="Customer 3"
+                        class="w-24 h-24 rounded-full object-cover">
+                    </div>
+                    <blockquote class="text-center mb-8">
+                      <p class="text-xl md:text-2xl leading-relaxed mb-6">
+                        "We've used their services for multiple events now. Consistent quality, reliable delivery, and excellent customer
+                        service. They're our go-to vendor!"
+                      </p>
+                    </blockquote>
+                    <div class="text-center">
+                      <p class="font-semibold text-lg">Lisa Martinez</p>
+                      <p class="text-gray-600">Marketing Director, Innovate Inc.</p>
+
+                    </div>
+                  </div>
+                </div>
+          
+                <!-- Pagination Dots -->
+                <div class="flex justify-center gap-2 mt-8">
+                  <button onclick="goToTestimonial(0)" class="dot w-3 h-3 rounded-full bg-gray-900 transition"
+                    data-dot="0"></button>
+                  <button onclick="goToTestimonial(1)" class="dot w-3 h-3 rounded-full bg-gray-300 transition"
+                    data-dot="1"></button>
+                  <button onclick="goToTestimonial(2)" class="dot w-3 h-3 rounded-full bg-gray-300 transition"
+                    data-dot="2"></button>
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Contact Section -->
+          <section class="bg-[#f5f0eb] py-16 md:py-24">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20">
+              <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <h2 class="text-3xl md:text-4xl font-semibold mb-6">Connect with us!</h2>
+          
+                  <div class="mb-6">
+                    <p class="font-semibold mb-2">Phone:</p>
+                    <p class="mb-1"><a href="tel:+18884827768" class="underline hover:no-underline">09175921859</a> 
+                    </p>
+                  </div>
+
+                  <div class="mb-6">
+                    <p class="font-semibold mb-2">Email:</p>
+                    <p class="mb-1">
+                      <a href="mailto:example1@gmail.com" class="underline hover:no-underline">lalolarosa.ph@gmail.com/a>
+                    </p>
+                  </div>
+
+          
+                  <a href="#"
+                    class="inline-block text-lg font-semibold border-b-2 border-lola-magenta hover:border-lola-magenta-dark transition">Contact
+                    us</a>
+                </div>
+                <div class="flex justify-center md:justify-end">
+                  <img src="assets/images/gallery-300x300.png"
+                    alt="image" class="w-full max-w-md">
+                </div>
+              </div>
+            </div>
+          </section>
+          
+          <!-- Products Section -->
+          <section class="bg-lola-magenta-dark py-16 md:py-24">
+            <div class="container mx-auto px-6 md:px-12 lg:px-20">
+              <div class="text-center mb-12">
+                <h2 class="text-4xl md:text-5xl font-light text-white mb-6">La Lola Rosa Services</h2>
+                <p class="text-lg text-white max-w-4xl mx-auto leading-relaxed">
+                  Each piece at La Lola Rosa is crafted with love and intention. Every product is connected by one story — yours.
+                  While each keepsake is beautiful on its own, the real magic happens when they come together to capture the heart of your
+                  once-in-a-lifetime moments.
+                </p>
+              </div>
+          
+              
+              <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                  <h3 class="text-2xl font-semibold mb-4">Wooden Stands</h3>
+                  <p class="text-gray-700 mb-6 leading-relaxed">
+                    High-quality wooden stands built to last. Perfect for professional events and exhibitions with a modern aesthetic.
+                  </p>
+                  <a href="wooden-stands.html"
+                    class="inline-flex items-center gap-2 font-semibold border-b-2 border-lola-magenta hover:border-lola-magenta-dark transition">
+                    <span>Learn more</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+          
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                  <h3 class="text-2xl font-semibold mb-4">Metal Stands</h3>
+                  <p class="text-gray-700 mb-6 leading-relaxed">
+                    Handcrafted metal stands with natural elegance. Ideal for rustic and sophisticated event themes.
+                  </p>
+                  <a href="metal-stands.html"
+                    class="inline-flex items-center gap-2 font-semibold border-b-2 border-lola-magenta hover:border-lola-magenta-dark transition">
+                    <span>Learn more</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+          
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                  <h3 class="text-2xl font-semibold mb-4">Video Booth</h3>
+                  <p class="text-gray-700 mb-6 leading-relaxed">
+                    State-of-the-art video booth services with professional lighting and instant sharing capabilities.
+                  </p>
+                  <a href="vide-booth.html"
+                    class="inline-flex items-center gap-2 font-semibold border-b-2 border-lola-magenta hover:border-lola-magenta-dark transition">
+                    <span>Learn more</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+          
+                
+                <div class="bg-white rounded-2xl p-8 shadow-lg">
+                  <h3 class="text-2xl font-semibold mb-4">UV Picture Prints</h3>
+                  <p class="text-gray-700 mb-6 leading-relaxed">
+                    High-quality UV prints. Perfect for professional events and exhibitions with a modern aesthetic.
+                  </p>
+                  <a href="uv-prints.html"
+                    class="inline-flex items-center gap-2 font-semibold border-b-2 border-lola-magenta hover:border-lola-magenta-dark transition">
+                    <span>Learn more</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+
+
+
+
+
+
+
+
+
+
+
+      <!-- footer -->
+      <footer class="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+      
+      
+            <div>
+              <h3 class="text-white text-lg font-bold mb-4">
+                <span class="text-lola-teal">La Lola</span> <span class="text-lola-magenta">Rosa</span>
+              </h3>
+              <p class="text-sm leading-relaxed">
+                Professional stands and photo solutions for unforgettable events since 2024.
+              </p>
+            </div>
+      
+      
+            <div>
+              <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+              <ul class="space-y-2 text-sm">
+                <li><a href="index.html" class="hover:text-lola-teal transition-colors">Home</a></li>
+                <li><a href="about.html" class="hover:text-lola-teal transition-colors">About</a></li>
+                <li><a href="#products" class="hover:text-lola-teal transition-colors">Services</a></li>
+                <li><a href="gallery.html" class="hover:text-lola-teal transition-colors">Gallery</a></li>
+                <li><a href="#contact" class="hover:text-lola-teal transition-colors">Contact</a></li>
+              </ul>
+            </div>
+      
+      
+            <div>
+              <h4 class="text-white font-semibold mb-4">Services</h4>
+              <ul class="space-y-2 text-sm">
+                <li><a href="metal-stands.html" class="hover:text-lola-teal transition-colors">Metal Stands</a></li>
+                <li><a href="wooden-stands.html" class="hover:text-lola-teal transition-colors">Wood Stands</a></li>
+                <li><a href="uv-prints.html" class="hover:text-lola-teal transition-colors">Picture Packages</a></li>
+                <li><a href="video.html" class="hover:text-lola-teal transition-colors">Video Booth</a></li>
+              </ul>
+            </div>
+      
+      
+            <div>
+              <h4 class="text-white font-semibold mb-4">Contact</h4>
+              <ul class="space-y-2 text-sm">
+                <li>Google Maps pin: LA LOLA ROSA - SOUTH</li>
+                <li><a href="mailto:info@premiumstands.com"
+                    class="hover:text-lola-teal transition-colors">lalolarosa.ph@gmail.com</a></li>
+                <li><a href="tel:+15551234567" class="hover:text-lola-teal transition-colors">09175921859</a></li>
+              </ul>
+      
+      
+              <div class="flex gap-4 mt-4">
+                <a href="#" class="hover:text-lola-magenta transition-colors" aria-label="Facebook">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-lola-magenta transition-colors" aria-label="Instagram">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-lola-magenta transition-colors" aria-label="Twitter">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+      
+          <div class="border-t border-gray-800 pt-8 text-center text-sm">
+            <p>&copy; 2025 La Lola Rosa. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+    <!-- testimonials js -->
+    <script>
+            let currentTestimonial = 0;
+            const testimonials = document.querySelectorAll('.testimonial-card');
+            const dot = document.querySelectorAll('.dot');
+
+            function showTestimonial(index) {
+              testimonials.forEach((testimonial, i) => {
+                if (i === index) {
+                  testimonial.classList.remove('hidden');
+                } else {
+                  testimonial.classList.add('hidden');
+                }
+              });
+
+              dot.forEach((dot, i) => {
+                if (i === index) {
+                  dot.classList.remove('bg-gray-300');
+                  dot.classList.add('bg-gray-900');
+                } else {
+                  dot.classList.remove('bg-gray-900');
+                  dot.classList.add('bg-gray-300');
+                }
+              });
+
+              currentTestimonial = index;
+            }
+
+            function nextTestimonial() {
+              const next = (currentTestimonial + 1) % testimonials.length;
+              showTestimonial(next);
+            }
+
+            function previousTestimonial() {
+              const prev = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+              showTestimonial(prev);
+            }
+
+            function goToTestimonial(index) {
+              showTestimonial(index);
+            }
+
+            // Initialize
+            showTestimonial(0);
+    </script>
+      
+      <!-- JS -->
+    <script>
+          // Navbar scroll shadow
+          const navbar = document.getElementById('navbar');
+          window.addEventListener('scroll', () => {
+            if (window.scrollY > 10) {
+              navbar.classList.add('navbar-shadow');
+            } else {
+              navbar.classList.remove('navbar-shadow');
+            }
+          });
+
+          // Hero entrance animations
+          const heroElements = document.querySelectorAll('.fade-in-up');
+          const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+          };
+
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+              if (entry.isIntersecting) {
+                setTimeout(() => {
+                  entry.target.classList.add('active');
+                }, index * 100);
+              }
+            });
+          }, observerOptions);
+
+          heroElements.forEach(el => observer.observe(el));
+
+          // Desktop dropdown hover
+          const dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+          dropdownContainers.forEach(container => {
+            const button = container.querySelector('button');
+            const menu = container.querySelector('.dropdown-menu');
+            let timeoutId;
+
+            const showDropdown = () => {
+              clearTimeout(timeoutId);
+              menu.classList.add('active');
+              button.setAttribute('aria-expanded', 'true');
+            };
+
+            const hideDropdown = () => {
+              timeoutId = setTimeout(() => {
+                menu.classList.remove('active');
+                button.setAttribute('aria-expanded', 'false');
+              }, 150);
+            };
+
+            // Mouse events
+            container.addEventListener('mouseenter', showDropdown);
+            container.addEventListener('mouseleave', hideDropdown);
+
+            // Keyboard navigation
+            button.addEventListener('focus', showDropdown);
+            button.addEventListener('keydown', (e) => {
+              if (e.key === 'Escape') {
+                hideDropdown();
+                button.focus();
+              }
+              if (e.key === 'ArrowDown') {
+                e.preventDefault();
+                showDropdown();
+                const firstLink = menu.querySelector('a');
+                if (firstLink) firstLink.focus();
+              }
+            });
+
+            // Allow keyboard navigation within dropdown
+            const links = menu.querySelectorAll('a');
+            links.forEach((link, index) => {
+              link.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowDown') {
+                  e.preventDefault();
+                  const nextLink = links[index + 1];
+                  if (nextLink) nextLink.focus();
+                }
+                if (e.key === 'ArrowUp') {
+                  e.preventDefault();
+                  const prevLink = links[index - 1];
+                  if (prevLink) {
+                    prevLink.focus();
+                  } else {
+                    button.focus();
+                  }
+                }
+                if (e.key === 'Escape') {
+                  hideDropdown();
+                  button.focus();
+                }
+              });
+
+              link.addEventListener('blur', (e) => {
+                if (!container.contains(e.relatedTarget)) {
+                  hideDropdown();
+                }
+              });
+            });
+          });
+
+          // Mobile menu toggle
+          const mobileMenuButton = document.getElementById('mobile-menu-button');
+          const mobileMenu = document.getElementById('mobile-menu');
+
+          mobileMenuButton.addEventListener('click', () => {
+            const isOpen = mobileMenu.classList.toggle('active');
+            mobileMenuButton.setAttribute('aria-expanded', isOpen);
+          });
+
+          // Mobile services submenu toggle
+          const mobileServicesButton = document.getElementById('mobile-services-button');
+          const mobileServicesMenu = document.getElementById('mobile-services-menu');
+
+          mobileServicesButton.addEventListener('click', () => {
+            const isOpen = mobileServicesMenu.classList.toggle('active');
+            mobileServicesButton.setAttribute('aria-expanded', isOpen);
+            const icon = mobileServicesButton.querySelector('svg');
+            icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
+          });
+
+          // Close mobile menu when clicking a link
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              mobileMenu.classList.remove('active');
+              mobileMenuButton.setAttribute('aria-expanded', 'false');
+            });
+          });
+
+          // Testimonial Carousel
+          const carousel = document.getElementById('carousel');
+          const carouselItems = carousel.querySelectorAll('.carousel-item');
+          const prevBtn = document.getElementById('prev-btn');
+          const nextBtn = document.getElementById('next-btn');
+          const dotsContainer = document.getElementById('carousel-dots');
+
+          let currentIndex = 0;
+          let autoplayInterval;
+          let isPaused = false;
+
+          // Create dots
+          carouselItems.forEach((_, index) => {
+            const dot = document.createElement('button');
+            dot.className = `w-2 h-2 rounded-full transition-all ${index === 0 ? 'bg-lola-magenta w-8' : 'bg-gray-300'}`;
+            dot.setAttribute('aria-label', `Go to testimonial ${index + 1}`);
+            dot.addEventListener('click', () => goToSlide(index));
+            dotsContainer.appendChild(dot);
+          });
+
+          const dots = dotsContainer.querySelectorAll('button');
+
+          function updateCarousel() {
+            carouselItems.forEach((item, index) => {
+              item.classList.toggle('active', index === currentIndex);
+            });
+
+            dots.forEach((dot, index) => {
+              if (index === currentIndex) {
+                dot.className = 'w-8 h-2 rounded-full bg-lola-magenta transition-all';
+              } else {
+                dot.className = 'w-2 h-2 rounded-full bg-gray-300 transition-all';
+              }
+            });
+          }
+
+          function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+            resetAutoplay();
+          }
+
+          function nextSlide() {
+            currentIndex = (currentIndex + 1) % carouselItems.length;
+            updateCarousel();
+          }
+
+          function prevSlide() {
+            currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
+            updateCarousel();
+          }
+
+          function startAutoplay() {
+            if (!isPaused) {
+              autoplayInterval = setInterval(nextSlide, 5000);
+            }
+          }
+
+          function stopAutoplay() {
+            clearInterval(autoplayInterval);
+          }
+
+          function resetAutoplay() {
+            stopAutoplay();
+            startAutoplay();
+          }
+
+          // Event listeners
+          nextBtn.addEventListener('click', () => {
+            nextSlide();
+            resetAutoplay();
+          });
+
+          prevBtn.addEventListener('click', () => {
+            prevSlide();
+            resetAutoplay();
+          });
+
+          // Pause on hover
+          carousel.addEventListener('mouseenter', () => {
+            isPaused = true;
+            stopAutoplay();
+          });
+
+          carousel.addEventListener('mouseleave', () => {
+            isPaused = false;
+            startAutoplay();
+          });
+
+          // Keyboard navigation for carousel
+          document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') {
+              prevSlide();
+              resetAutoplay();
+            } else if (e.key === 'ArrowRight') {
+              nextSlide();
+              resetAutoplay();
+            }
+          });
+
+          // Start autoplay
+          function autoplayCarousel() {
+            startAutoplay();
+          }
+
+          // Initialize carousel autoplay
+          autoplayCarousel();
+    </script>
+  
+</body>
+</html>

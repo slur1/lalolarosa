@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>La Lola Rosa - Metal Stands Packages</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'lola-teal': '#1a5f7a',
+            'lola-teal-dark': '#154d61',
+            'lola-teal-light': '#e6f2f5',
+            'lola-magenta': '#b8257f',
+            'lola-magenta-dark': '#9a1f6a',
+            'lola-magenta-light': '#fce8f3',
+            'lola-brown': '#6b4423',
+            'lola-beige': '#e8e0d5',
+            'lola-beige-dark': '#d4c9ba',
+          },
+          fontFamily: {
+            heading: ['Gwendolyn', 'cursive'],
+          },
+          backgroundImage: {
+            'hero-bg': "url('assets/images/wallpaper.webp')",
+          },
+        },
+      },
+    };
+
+  </script>
+  <style>
+    * {
+      font-family: "Montserrat", sans-serif;
+    }
+
+    /* Custom animations */
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .fade-in {
+      animation: fadeIn 0.4s ease-out;
+    }
+
+    /* Hero animation classes */
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .fade-in-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Navbar shadow on scroll */
+    .navbar-shadow {
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Dropdown animation */
+    .dropdown-menu {
+      opacity: 0;
+      transform: translateY(-10px);
+      transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+      pointer-events: none;
+    }
+
+    .dropdown-menu.active {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    /* Mobile menu animation */
+    .mobile-menu {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .mobile-menu.active {
+      max-height: 500px;
+    }
+
+    /* Card hover effect */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+
+    /* Button hover effect */
+    .btn-hover {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn-hover:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+  </style>
+</head>
+
+<body class="bg-lola-beige bg-hero-bg bg-cover bg-fixed bg-center min-h-screen pt-10">
+
+
+<!-- Top Contact Bar -->
+<div class="fixed top-0 left-0 right-0 bg-gray-50 border-b border-gray-200 z-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between py-2 text-sm">
+
+      <!-- Email -->
+      <div class="flex items-center gap-2 text-gray-600">
+        <i class="far fa-envelope text-lola-magenta-dark"></i>
+        <a href="mailto:inquiries@cheskafreight.com.ph" class="hover:text-lola-teal transition-colors">
+          lalolarosa.ph@gmail.com
+        </a>
+      </div>
+
+      <!-- Phone Numbers and Social Media -->
+      <div class="flex items-center gap-4">
+        <!-- Phone Numbers -->
+        <div class="hidden sm:flex items-center gap-3 text-gray-600">
+          <i class="fas fa-phone text-lola-magenta-dark"></i>
+          <a href="tel:+6328245-9436" class="hover:text-lola-teal transition-colors">09175921859</a>
+        </div>
+
+        <!-- Social Media Icons -->
+        <div class="flex items-center gap-3">
+          <a href="https://www.facebook.com/share/19z6sQuHDy/" target="_blank"
+            class="text-lola-magenta-dark hover:text-lola-teal transition-colors">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+          <a href="https://www.instagram.com/lalolarosa.ph?igsh=MWZzNjNmaG13YXJpNA==" target="_blank"
+            class="text-lola-magenta-dark hover:text-lola-teal transition-colors">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://www.tiktok.com/@lalolarosa.ph?_t=ZS-90PJv2NhYzl&_r=1" target="_blank"
+            class="text-lola-magenta-dark hover:text-lola-teal transition-colors">
+            <i class="fab fa-tiktok"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- navbar -->
+  <nav id="navbar" class="fixed top-9 left-0 right-0 bg-white z-40 shadow-sm transition-shadow duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between gap-x-16 h-16">
+
+
+        <div class="flex-shrink-0">
+          <span class="text-xl font-bold text-gray-700">logo here</span>
+        </div>
+
+
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="text-gray-700 hover:text-lola-teal transition-colors">Home</a>
+          <a href="about.html" class="text-gray-700 hover:text-lola-teal transition-colors">About</a>
+
+
+          <div class="relative dropdown-container">
+            <button
+              class="text-gray-700 hover:text-lola-teal transition-colors flex items-center gap-1 focus:outline-none focus:text-lola-teal"
+              aria-haspopup="true" aria-expanded="false">
+              <a href="#products" class="flex-1 text-left">Services</a>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div class="dropdown-menu absolute top-full left-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+              <a href="wooden-stands.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Wooden
+                Stands</a>
+              <a href="metal-stands.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Metal
+                Stands</a>
+              <a href="uv-prints.html"
+                class="block px-4 py-2 text-gray-700hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Picture
+                Packages</a>
+              <a href="video.html"
+                class="block px-4 py-2 text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Video
+                Booth</a>
+            </div>
+          </div>
+
+          <a href="gallery.html" class="text-gray-700 hover:text-lola-teal transition-colors">Gallery</a>
+          <a href="#contact" class="text-gray-700 hover:text-lola-teal transition-colors">Contact</a>
+        </div>
+
+
+        <button id="mobile-menu-button"
+          class="md:hidden p-2 rounded-lg hover:bg-lola-beige focus:outline-none focus:ring-2 focus:ring-lola-teal"
+          aria-label="Toggle mobile menu" aria-expanded="false">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+
+      <div id="mobile-menu" class="mobile-menu md:hidden">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a href="index.html"
+            class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Home</a>
+          <a href="about.html"
+            class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">About</a>
+
+
+          <div>
+            <button id="mobile-services-button"
+              class="w-full text-left px-3 py-2 rounded-lg text-gray-700 hover:bg-lola-teal-light hover:text-lola-teal transition-colors flex items-center justify-between"
+              aria-expanded="false">
+              <a href="#products" class="flex-1 text-left">Services</a>
+              <svg class="w-4 h-4 transform transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="mobile-services-menu" class="mobile-menu pl-4">
+              <a href="wooden-stands.html"
+                class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Wooden
+                Stands</a>
+              <a href="metal-stands.html"
+                class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Metal
+                Stands</a>
+              <a href="uv-prints.html"
+                class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Picture
+                Packages</a>
+              <a href="video.html"
+                class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Video
+                Booth</a>
+            </div>
+          </div>
+
+          <a href="gallery.html"
+            class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Gallery</a>
+          <a href="#contact"
+            class="block px-3 py-2 rounded-lg text-lola-magenta-dark hover:bg-lola-teal-light hover:text-lola-teal transition-colors">Contact</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- hero section -->
+  <section class="py-16 px-4 relative overflow-hidden">
+
+
+    <div class="container mx-auto relative z-10">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+
+        <div class="flex-1 space-y-1">
+          <h1 class="text-2xl md:text-3xl lg:text-6xl font-bold text-black leading-tight">
+            Metal Stands Collection
+          </h1>
+          <p class="text-xs md:text-xl sm:text-xs text-black leading-relaxed pt-2">
+            Display your love story beautifully.
+          </p>
+          <p class="text-xs md:text-xl sm:text-xs text-black leading-relaxed">
+            Crafted to complement your prints and elevate your event
+            styling. 🌸
+          </p>
+          
+
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-2 py-4">
+            <div class="flex items-start space-x-3">
+
+              <div class="flex items-start space-x-2">
+                <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"
+                  style="color: black;">
+                  <path fill-rule="evenodd"
+                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                    clip-rule="evenodd" />
+                </svg>
+                <div>
+                  <h3 class="font-semibold text-black text-sm">Affordable</h3>
+                  <p class="text-xs text-black italic">Packages prices at discounted price!</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="flex items-start space-x-2">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style="color: black;">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-black text-sm">FREE CARRY BAG</h3>
+                <p class="text-xs text-black italic">For your convenience on the day of event (fits stands and 18" x 24" prints)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-2">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style="color: black;">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-black text-sm">Lalamove Delivery Metro Manila</h3>
+                <p class="text-xs text-black italic">Lalamove delivery for Metro Manila & nearby cities</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-2">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style="color: black;">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-black text-sm">Nationwide delivery</h3>
+                <p class="text-xs text-black italic">J&T delivery for nationwide orders (+200 for the box)</p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-2">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style="color: black;">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-black text-sm">FREE basic lay-out/editing using Canva Premium</h3>
+                
+              </div>
+            </div>
+            
+
+            <div class="flex items-start space-x-2">
+              <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20" style="color: black;">
+                <path fill-rule="evenodd"
+                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                  clip-rule="evenodd" />
+              </svg>
+              <div>
+                <h3 class="font-semibold text-black text-sm">All inclusions are yours to keep!</h3>
+                
+              </div>
+            </div>
+
+
+
+
+          </div>
+
+        </div>
+
+
+        <div class="flex-1 flex justify-center">
+          <div
+            class="rounded-2xl max-w-md transform hover:scale-105 transition-transform duration-300">
+            <img src="assets/images/free-bag.webp"
+              alt="free-bag" class="w-full h-auto rounded-lg" />
+            <p class="text-center mt-4 text-black font-semibold text-xs italic">Fits prints sized 18" x 24" and all metal stands</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- main content -->
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12">
+    <div class="grid lg:grid-cols-4 gap-6 lg:gap-8">
+  
+
+  
+      <div class="lg:col-span-3">
+        <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark relative overflow-hidden card-hover flex flex-col">
+            <div
+              class="absolute top-4 right-4 bg-lola-magenta-dark text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12 shadow-lg">
+              Best Seller
+            </div>
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package A</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱3,500.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>3pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>3pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+
+
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark relative overflow-hidden card-hover flex flex-col">
+            <div
+              class="absolute top-4 right-4 bg-lola-magenta-dark text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12 shadow-lg">
+              Best Seller
+            </div>
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package B</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱5,000.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div> 
+
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark relative overflow-hidden card-hover flex flex-col">
+            <div
+              class="absolute top-4 right-4 bg-lola-magenta-dark text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12 shadow-lg">
+              Best Seller
+            </div>
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package C</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱6,000.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>6pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>6pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark relative overflow-hidden card-hover flex flex-col">
+            <div
+              class="absolute top-4 right-4 bg-lola-magenta-dark text-white text-xs font-bold px-3 py-1 rounded-full transform rotate-12 shadow-lg">
+              Best Seller
+            </div>
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package D</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱6,200.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft) & 24in x 36in (2ft x 3ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>4pcs 18in x 24in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>1pc 24in x 36in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+         
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark card-hover flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package E</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱6,800.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft) & 24in x 36in (2ft x 3ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>3pcs 18in x 24in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>2pcs 24in x 36in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark relative overflow-hidden card-hover flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package F</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱7,200.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft) & 24in x 36in (2ft x 3ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>6pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs 18in x 24in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>1pc 24in x 36in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>6pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark card-hover flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package G</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱7,700.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>18in x 24in (1.5ft x 2ft) & 24in x 36in (2ft x 3ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>6pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>4pcs 18in x 24in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>2pcs 24in x 36in</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>6pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+            
+          </div>
+  
+          
+          <div
+            class="bg-lola-magenta-light rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 p-6 border-2 border-lola-magenta-light hover:border-lola-magenta-dark card-hover flex flex-col">
+            <div class="mb-4">
+              <h3 class="text-2xl font-bold text-lola-magenta-dark mb-2">Package H</h3>
+              <div class="text-3xl font-bold text-lola-magenta-dark mb-3">₱8,500.00</div>
+            </div>
+            <div class="space-y-2 text-sm text-lola-magenta-dark flex-grow">
+              <p class="font-semibold text-lola-magenta-dark mb-2">Photo Dimensions:</p>
+              <p>24in x 36in (2ft x 3ft)</p>
+              <ul class="space-y-1.5 mt-3">
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs High-Quality UV Prints on Board</span>
+                </li>
+                <li class="flex items-start">
+                  <span class="text-lola-magenta-dark mr-2">✓</span>
+                  <span>5pcs Collapsible Black Metal Stands</span>
+                </li>
+              </ul>
+            </div>
+            
+            <div class="mt-4">
+              <button onclick="openModal('assets/images/product-400x300.png')"
+                class="bg-lola-magenta-dark text-white text-sm font-semibold px-4 py-2 rounded-lg hover:bg-opacity-90 transition-all duration-300 shadow-md hover:shadow-lg">
+                View Sample
+              </button>
+            </div>
+
+          </div>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div id="imageModal"
+      class="modal-overlay hidden fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+      <div class="modal-content relative max-w-4xl w-full">
+    
+        <button onclick="closeModal()"
+          class="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors duration-200 text-4xl font-bold z-10">
+          &times;
+        </button>
+    
+        <div class="bg-white rounded-lg p-4 shadow-2xl">
+          <img id="modalImage" src="/placeholder.svg" alt="Package Sample" class="w-full h-auto rounded-lg">
+        </div>
+      </div>
+  </div>
+
+      <!-- footer -->
+      <footer class="bg-gray-900 text-gray-300 py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+          <div class="grid md:grid-cols-4 gap-8 mb-8">
+      
+      
+            <div>
+              <h3 class="text-white text-lg font-bold mb-4">
+                <span class="text-lola-teal">La Lola</span> <span class="text-lola-magenta">Rosa</span>
+              </h3>
+              <p class="text-sm leading-relaxed">
+                Professional stands and photo solutions for unforgettable events since 2024.
+              </p>
+            </div>
+      
+      
+            <div>
+              <h4 class="text-white font-semibold mb-4">Quick Links</h4>
+              <ul class="space-y-2 text-sm">
+                <li><a href="index.html" class="hover:text-lola-teal transition-colors">Home</a></li>
+                <li><a href="about.html" class="hover:text-lola-teal transition-colors">About</a></li>
+                <li><a href="#products" class="hover:text-lola-teal transition-colors">Services</a></li>
+                <li><a href="gallery.html" class="hover:text-lola-teal transition-colors">Gallery</a></li>
+                <li><a href="#contact" class="hover:text-lola-teal transition-colors">Contact</a></li>
+              </ul>
+            </div>
+      
+      
+            <div>
+              <h4 class="text-white font-semibold mb-4">Services</h4>
+              <ul class="space-y-2 text-sm">
+                <li><a href="metal-stands.html" class="hover:text-lola-teal transition-colors">Metal Stands</a></li>
+                <li><a href="wooden-stands.html" class="hover:text-lola-teal transition-colors">Wood Stands</a></li>
+                <li><a href="uv-prints.html" class="hover:text-lola-teal transition-colors">Picture Packages</a></li>
+                <li><a href="video.html" class="hover:text-lola-teal transition-colors">Video Booth</a></li>
+              </ul>
+            </div>
+      
+      
+            <div>
+              <h4 class="text-white font-semibold mb-4">Contact</h4>
+              <ul class="space-y-2 text-sm">
+                <li>Google Maps pin: LA LOLA ROSA - SOUTH</li>
+                <li><a href="mailto:info@premiumstands.com"
+                    class="hover:text-lola-teal transition-colors">lalolarosa.ph@gmail.com</a></li>
+                <li><a href="tel:+15551234567" class="hover:text-lola-teal transition-colors">09175921859</a></li>
+              </ul>
+      
+      
+              <div class="flex gap-4 mt-4">
+                <a href="#" class="hover:text-lola-magenta transition-colors" aria-label="Facebook">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-lola-magenta transition-colors" aria-label="Instagram">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4z" />
+                  </svg>
+                </a>
+                <a href="#" class="hover:text-lola-magenta transition-colors" aria-label="Twitter">
+                  <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path
+                      d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+      
+      
+          <div class="border-t border-gray-800 pt-8 text-center text-sm">
+            <p>&copy; 2025 La Lola Rosa. All rights reserved.</p>
+          </div>
+        </div>
+      </footer>
+
+
+  <!-- modal func -->
+  <script>
+        function openModal(imageSrc) {
+          const modal = document.getElementById('imageModal');
+          const modalImage = document.getElementById('modalImage');
+          modalImage.src = imageSrc;
+          modal.classList.remove('hidden');
+          // Prevent body scroll when modal is open
+          document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+          const modal = document.getElementById('imageModal');
+          modal.classList.add('hidden');
+          // Restore body scroll
+          document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside the image
+        document.getElementById('imageModal').addEventListener('click', function (e) {
+          if (e.target === this) {
+            closeModal();
+          }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+            closeModal();
+          }
+        });
+      </script>
+
+  <!-- JS -->
+  <script>
+    // Navbar scroll shadow
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 10) {
+        navbar.classList.add('navbar-shadow');
+      } else {
+        navbar.classList.remove('navbar-shadow');
+      }
+    });
+
+    // Hero entrance animations
+    const heroElements = document.querySelectorAll('.fade-in-up');
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            entry.target.classList.add('active');
+          }, index * 100);
+        }
+      });
+    }, observerOptions);
+
+    heroElements.forEach(el => observer.observe(el));
+
+    // Desktop dropdown hover
+    const dropdownContainers = document.querySelectorAll('.dropdown-container');
+
+    dropdownContainers.forEach(container => {
+      const button = container.querySelector('button');
+      const menu = container.querySelector('.dropdown-menu');
+      let timeoutId;
+
+      const showDropdown = () => {
+        clearTimeout(timeoutId);
+        menu.classList.add('active');
+        button.setAttribute('aria-expanded', 'true');
+      };
+
+      const hideDropdown = () => {
+        timeoutId = setTimeout(() => {
+          menu.classList.remove('active');
+          button.setAttribute('aria-expanded', 'false');
+        }, 150);
+      };
+
+      // Mouse events
+      container.addEventListener('mouseenter', showDropdown);
+      container.addEventListener('mouseleave', hideDropdown);
+
+      // Keyboard navigation
+      button.addEventListener('focus', showDropdown);
+      button.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          hideDropdown();
+          button.focus();
+        }
+        if (e.key === 'ArrowDown') {
+          e.preventDefault();
+          showDropdown();
+          const firstLink = menu.querySelector('a');
+          if (firstLink) firstLink.focus();
+        }
+      });
+
+      // Allow keyboard navigation within dropdown
+      const links = menu.querySelectorAll('a');
+      links.forEach((link, index) => {
+        link.addEventListener('keydown', (e) => {
+          if (e.key === 'ArrowDown') {
+            e.preventDefault();
+            const nextLink = links[index + 1];
+            if (nextLink) nextLink.focus();
+          }
+          if (e.key === 'ArrowUp') {
+            e.preventDefault();
+            const prevLink = links[index - 1];
+            if (prevLink) {
+              prevLink.focus();
+            } else {
+              button.focus();
+            }
+          }
+          if (e.key === 'Escape') {
+            hideDropdown();
+            button.focus();
+          }
+        });
+
+        link.addEventListener('blur', (e) => {
+          if (!container.contains(e.relatedTarget)) {
+            hideDropdown();
+          }
+        });
+      });
+    });
+
+    // Mobile menu toggle
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    mobileMenuButton.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('active');
+      mobileMenuButton.setAttribute('aria-expanded', isOpen);
+    });
+
+    // Mobile services submenu toggle
+    const mobileServicesButton = document.getElementById('mobile-services-button');
+    const mobileServicesMenu = document.getElementById('mobile-services-menu');
+
+    mobileServicesButton.addEventListener('click', () => {
+      const isOpen = mobileServicesMenu.classList.toggle('active');
+      mobileServicesButton.setAttribute('aria-expanded', isOpen);
+      const icon = mobileServicesButton.querySelector('svg');
+      icon.style.transform = isOpen ? 'rotate(180deg)' : 'rotate(0)';
+    });
+
+    // Close mobile menu when clicking a link
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        mobileMenuButton.setAttribute('aria-expanded', 'false');
+      });
+    });
+  </script>
+
+</body>
+
+</html>
